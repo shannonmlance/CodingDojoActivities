@@ -1,0 +1,10 @@
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/bin/Debug/netcoreapp2.0/CodingDojoActivities.deps.json
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/bin/Debug/netcoreapp2.0/CodingDojoActivities.runtimeconfig.json
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/bin/Debug/netcoreapp2.0/CodingDojoActivities.runtimeconfig.dev.json
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/bin/Debug/netcoreapp2.0/CodingDojoActivities.dll
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/bin/Debug/netcoreapp2.0/CodingDojoActivities.pdb
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/obj/Debug/netcoreapp2.0/CodingDojoActivities.csproj.CoreCompileInputs.cache
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/obj/Debug/netcoreapp2.0/CodingDojoActivities.AssemblyInfoInputs.cache
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/obj/Debug/netcoreapp2.0/CodingDojoActivities.AssemblyInfo.cs
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/obj/Debug/netcoreapp2.0/CodingDojoActivities.dll
+/Users/shannonlance/Documents/C Sharp/Belt Exams/CodingDojoActivities/obj/Debug/netcoreapp2.0/CodingDojoActivities.pdb

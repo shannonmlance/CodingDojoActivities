@@ -1,0 +1,79 @@
+@model List<cdActivity>
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Dojo Activity Center | Home</title>
+</head>
+<body>
+    <div class="container">
+
+        <!-- header -->
+        <div class="container">
+            <h1>Dojo Activity Center</h1>
+            <p>Welcome @ViewBag.CurrentUserName!</p>
+            <a href="/logout">Log off</a>
+        </div>
+        <p>@ViewBag.Error</p>
+
+        <!-- display activities -->
+        <div class="container">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Activity</th>
+                        <th scope="col">Date and Time</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Event Coordinator</th>
+                        <th scope="col">Number of Participants</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach(cdActivity a in Model)
+                        {
+                            <tr>
+                                <td><a href="/activity/@a.cdActivityId">@a.Title</a></td>
+                                <td>@a.Date.ToString("M/d") at @a.Time.ToString("h:mmtt")</td>
+                                <td>@a.Duration @a.DurationType</td>
+                                <td>@a.Creator.FirstName</td>
+                                <td>@a.Participations.Count()</td>
+                                <td>
+                                    @{
+                                        var results = a.Participations.Select(p => p.UserId).ToList();
+                                        if(!results.Contains((int)Context.Session.GetInt32("UserId")))
+                                        {
+                                            <a href="/join/@a.cdActivityId">Join</a>
+                                        }
+                                        if(results.Contains((int)Context.Session.GetInt32("UserId")))
+                                        {
+                                            <a href="/unjoin/@a.cdActivityId">Leave</a>
+                                        }
+                                        if(a.UserId == Context.Session.GetInt32("UserId"))
+                                        {
+                                            <a href="/delete/@a.cdActivityId">Delete</a>
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- link -->
+        <a href="/new"><button class="btn btn-primary">Add New Activity!</button></a>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
